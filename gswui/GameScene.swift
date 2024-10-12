@@ -31,7 +31,12 @@ class GameScene: SKScene {
             let location = touch.location(in: self)
             print("touch location: \(location)")
             
-            square.position = location
+            //square.position = location
+            
+            // glide action
+            let glideAction = SKAction.move(to: location, duration: 1.0)
+            square.run(glideAction)
+            
         }
     }
 }
