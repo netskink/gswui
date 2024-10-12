@@ -44,4 +44,17 @@ class GameScene: SKScene {
             
         }
     }
+    
+    // follow the touch
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("touches moved")
+        
+        for touch in touches {
+            let location = touch.location(in: self)
+            print("touch location: \(location)")
+            let move = SKAction.move(to: location, duration: 0.1)
+            square.run(move)
+            
+        }
+    }
 }
