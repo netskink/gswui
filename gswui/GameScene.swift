@@ -57,4 +57,12 @@ class GameScene: SKScene {
             
         }
     }
+    
+    // stop touch and move to origin
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("touches ended")
+        
+        let move = SKAction.move(to: CGPoint.zero, duration: 0.1)
+        square.run(move)
+    }
 }
