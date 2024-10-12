@@ -10,7 +10,9 @@ import SpriteKit
 class GameScene: SKScene {
 
 
-    
+    override func didMove(to view: SKView) {
+        self.physicsWorld.gravity = .init(dx: 0, dy: -1.0)
+    }
     
     // touch location
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -22,6 +24,13 @@ class GameScene: SKScene {
             square.size = CGSize(width: 100, height: 50)
             square.color = .red
             square.position = touch.location(in: self)
+            
+            // setup physics properties
+            square.physicsBody = SKPhysicsBody(rectangleOf: square.size)
+            
+            // ensure sprite is affected by gravity
+            square.physicsBody?.isDynamic = true
+            square.physicsBody?.affectedByGravity = true
             
             addChild(square)
 
