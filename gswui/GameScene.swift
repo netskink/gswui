@@ -12,7 +12,24 @@ class GameScene: SKScene {
 
     override func didMove(to view: SKView) {
         self.physicsWorld.gravity = .init(dx: 0, dy: -1.0)
+        createPlatform()
     }
+    
+    func createPlatform() {
+        let platform = SKSpriteNode()
+        platform.size = CGSize(width: 500, height: 50)
+        platform.color = .darkGray
+        platform.position = .init(x: 250, y: 250)
+        
+        platform.physicsBody = SKPhysicsBody(rectangleOf: platform.size)
+        
+        platform.physicsBody?.isDynamic = false
+        platform.physicsBody?.restitution = 0.5
+        platform.physicsBody?.affectedByGravity = false
+        
+        self.addChild(platform)
+    }
+    
     
     // touch location
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
