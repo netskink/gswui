@@ -19,13 +19,18 @@ struct ContentView: View {
             let scene = GameScene()
             scene.size = CGSize(width: screenWidth, height: screenHeight)
             
-            scene.backgroundColor = .clear
+            scene.backgroundColor = .blue
+//            scene.backgroundColor = .clear
             scene.scaleMode = .aspectFill
             
             return scene
         }
         VStack {
-            SpriteView(scene: scene) 
+            SpriteView(scene: scene)
+                .frame(width: screenWidth,
+                  height: screenHeight,
+                  alignment: .center)
+                .ignoresSafeArea(.all)
         }
         .padding()
     }
