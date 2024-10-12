@@ -8,8 +8,30 @@
 import SpriteKit
 
 class GameScene: SKScene {
+
+    let square = SKSpriteNode()
+
     
     override func didMove(to view: SKView) {
         print("game scene loaded")
+        
+        // create a sprite
+        square.size = CGSize(width: 100, height: 50)
+        square.color = .red
+        square.position = CGPoint(x: 100, y: 200)
+        
+        addChild(square)
+    }
+    
+    // touch location
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("touches began")
+        
+        for touch in touches {
+            let location = touch.location(in: self)
+            print("touch location: \(location)")
+            
+            square.position = location
+        }
     }
 }
