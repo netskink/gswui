@@ -35,7 +35,12 @@ class GameScene: SKScene {
             
             // glide action
             let glideAction = SKAction.move(to: location, duration: 1.0)
-            square.run(glideAction)
+            
+            // rotate action
+            let rotateAction = SKAction.rotate(byAngle: .pi, duration: 1.0)
+            
+            let sequenceAction = SKAction.sequence([glideAction, rotateAction])
+            square.run(sequenceAction)
             
         }
     }
