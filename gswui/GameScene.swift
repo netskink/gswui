@@ -24,7 +24,7 @@ class GameScene: SKScene {
         platform.physicsBody = SKPhysicsBody(rectangleOf: platform.size)
         
         platform.physicsBody?.isDynamic = false
-        platform.physicsBody?.restitution = 0.25  // 0.1 is rubber.  0.7 is steel
+        platform.physicsBody?.restitution = 0.25  // 0.1 is non-bouncy.  0.7 is bouncy
         platform.physicsBody?.affectedByGravity = false
         
         self.addChild(platform)
