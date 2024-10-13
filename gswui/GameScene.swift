@@ -19,12 +19,12 @@ class GameScene: SKScene {
         let platform = SKSpriteNode()
         platform.size = CGSize(width: 500, height: 50)
         platform.color = .darkGray
-        platform.position = .init(x: 250, y: 250)
+        platform.position = .init(x: 150, y: 150)
         
         platform.physicsBody = SKPhysicsBody(rectangleOf: platform.size)
         
         platform.physicsBody?.isDynamic = false
-        platform.physicsBody?.restitution = 0.5
+        platform.physicsBody?.restitution = 0.25  // 0.1 is rubber.  0.7 is steel
         platform.physicsBody?.affectedByGravity = false
         
         self.addChild(platform)
